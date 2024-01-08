@@ -57,6 +57,12 @@
             <td>
                 <a href="{% url 'choice' key=task.key %}"> Choose </a>
             </td>
+            <td>
+                {% if task.chosen %}
+                    <a href="{% url 'unchoose' key=task.key %}"> Unchoose </a>
+                {% endif %}
+
+            </td>
         </tr>
         {% endfor %}
 
