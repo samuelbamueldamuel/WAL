@@ -203,6 +203,25 @@ def unchoose(request, key):
     }
     return render(request, 'h.html', context)
 
+def unchooseAll(request):
+    chosenTasks = Task.objects.filter(chosen=True).all()
+
+    for x in chosenTasks:
+        x.chosen = False
+        x.save()
+
+    tasks = Task.objects.all()
+    toDo = Task.objects.filter(chosen=True).all()
+    history = History.objects.all()
+    total = getTotal()
+    context = {
+        'tasks': tasks,
+        'toTasks': toDo,
+        'history': history,
+        'total': total,
+    }
+    return render(request, 'h.html', context)
+
 
 
 

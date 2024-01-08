@@ -14,4 +14,5 @@ urlpatterns = [
     path("decline/<int:key>/", views.decline, name="decline"),
     path("killHistory/", views.killHistory, name="killHistory"),
     path("unchoose/<int:key>", views.unchoose, name="unchoose"),
+    path('unchooseAll/', views.unchooseAll, name="unchooseAll"),
 ]
